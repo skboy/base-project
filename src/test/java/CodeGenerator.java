@@ -24,12 +24,12 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig
-                .setAuthor("generator@TaleLin")
+                .setAuthor("skboy")
                 .setOpen(false)
                 .setFileOverride(false)
                 .setIdType(IdType.AUTO)
                 .setBaseResultMap(true)
-                .setEntityName("%sDO")
+                .setEntityName("%sModel")
                 .setSwagger2(true)
                 .setServiceName("%sService");
         mpg.setGlobalConfig(globalConfig);
@@ -37,7 +37,7 @@ public class CodeGenerator {
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig
-                .setUrl("jdbc:mysql://localhost:3306/blog?allowPublicKeyRetrieval=true&useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai")
+                .setUrl("jdbc:mysql://localhost:3306/my-wiki?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai")
                 .setDriverName("com.mysql.cj.jdbc.Driver")
                 .setUsername("root")
                 .setPassword("root");
@@ -46,10 +46,10 @@ public class CodeGenerator {
         // 包名配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
-                .setParent("io.github.talelin.latticy")
+                .setParent("com.skboy.emos.wx")
                 .setPathInfo(getPathInfo())
                 .setEntity("model")
-                .setController("controller.v1")
+                .setController("controller")
                 .setXml("xml");
         mpg.setPackageInfo(packageConfig);
 
@@ -65,12 +65,12 @@ public class CodeGenerator {
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig
                 .setNaming(NamingStrategy.underline_to_camel)
-                .setSuperEntityClass("io.github.talelin.latticy.model.BaseModel")
-                .setTablePrefix("lin_")
+                //.setSuperEntityClass("com.skboy.emos.wx.model.BaseModel")
+                //.setTablePrefix("lin_")
                 .setEntitySerialVersionUID(false)
                 .setEntityLombokModel(true)
                 .setRestControllerStyle(true)
-                .setSuperEntityColumns("id", "create_time", "update_time", "delete_time")
+                //.setSuperEntityColumns("id", "create_time", "update_time", "delete_time")
                 .setInclude(scanner("表名，多个英文逗号分割").split(","))
                 .setControllerMappingHyphenStyle(true);
         mpg.setStrategy(strategyConfig);
@@ -95,11 +95,11 @@ public class CodeGenerator {
 
     private static Map<String, String> getPathInfo() {
         Map<String, String> pathInfo = new HashMap<>();
-        pathInfo.put(ConstVal.ENTITY_PATH, System.getProperty("user.dir") + "/src/main/java/io/github/talelin/latticy/model");
-        pathInfo.put(ConstVal.MAPPER_PATH, System.getProperty("user.dir") + "/src/main/java/io/github/talelin/latticy/mapper");
-        pathInfo.put(ConstVal.SERVICE_PATH, System.getProperty("user.dir") + "/src/main/java/io/github/talelin/latticy/service");
-        pathInfo.put(ConstVal.SERVICE_IMPL_PATH, System.getProperty("user.dir") + "/src/main/java/io/github/talelin/latticy/service/impl");
-        pathInfo.put(ConstVal.CONTROLLER_PATH, System.getProperty("user.dir") + "/src/main/java/io/github/talelin/latticy/controller/v1");
+        pathInfo.put(ConstVal.ENTITY_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx/model");
+        pathInfo.put(ConstVal.MAPPER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//mapper");
+        pathInfo.put(ConstVal.SERVICE_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//service");
+        pathInfo.put(ConstVal.SERVICE_IMPL_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//service/impl");
+        pathInfo.put(ConstVal.CONTROLLER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx/controller");
         pathInfo.put(ConstVal.XML_PATH, System.getProperty("user.dir") + "/src/main/resources/mapper");
         return pathInfo;
     }
