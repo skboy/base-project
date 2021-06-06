@@ -46,7 +46,7 @@ public class CodeGenerator {
         // 包名配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
-                .setParent("com.skboy.emos.wx")
+                .setParent("com.skboy.base")
                 .setPathInfo(getPathInfo())
                 .setEntity("model")
                 .setController("controller")
@@ -95,11 +95,11 @@ public class CodeGenerator {
 
     private static Map<String, String> getPathInfo() {
         Map<String, String> pathInfo = new HashMap<>();
-        pathInfo.put(ConstVal.ENTITY_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx/model");
-        pathInfo.put(ConstVal.MAPPER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//mapper");
-        pathInfo.put(ConstVal.SERVICE_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//service");
-        pathInfo.put(ConstVal.SERVICE_IMPL_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx//service/impl");
-        pathInfo.put(ConstVal.CONTROLLER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/emos/wx/controller");
+        pathInfo.put(ConstVal.ENTITY_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/model");
+        pathInfo.put(ConstVal.MAPPER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/mapper");
+        pathInfo.put(ConstVal.SERVICE_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/service");
+        pathInfo.put(ConstVal.SERVICE_IMPL_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/service/impl");
+        pathInfo.put(ConstVal.CONTROLLER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/controller");
         pathInfo.put(ConstVal.XML_PATH, System.getProperty("user.dir") + "/src/main/resources/mapper");
         return pathInfo;
     }
