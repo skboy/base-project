@@ -37,6 +37,7 @@ public class CodeGenerator {
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig
+                //标记项目开始修改 修改完请删除 这个注释
                 .setUrl("jdbc:mysql://localhost:3306/my-wiki?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai")
                 .setDriverName("com.mysql.cj.jdbc.Driver")
                 .setUsername("root")
@@ -46,6 +47,7 @@ public class CodeGenerator {
         // 包名配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig
+                //标记项目开始修改 修改完请删除 这个注释
                 .setParent("com.skboy.base")
                 .setPathInfo(getPathInfo())
                 .setEntity("model")
@@ -95,6 +97,7 @@ public class CodeGenerator {
 
     private static Map<String, String> getPathInfo() {
         Map<String, String> pathInfo = new HashMap<>();
+        //标记项目开始修改 修改完请删除 这个注释
         pathInfo.put(ConstVal.ENTITY_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/model");
         pathInfo.put(ConstVal.MAPPER_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/mapper");
         pathInfo.put(ConstVal.SERVICE_PATH, System.getProperty("user.dir") + "/src/main/java/com/skboy/base/service");
