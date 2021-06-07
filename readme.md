@@ -6,7 +6,7 @@
 
 修改根目录名字 com.skboy.base 当初你不喜欢改也行
  
-修改启动项的名字
+修改启动项的名字 和mapper扫描路径
 
 修改config下swagger2.java 的controller包名 和一些 个人信息
 
