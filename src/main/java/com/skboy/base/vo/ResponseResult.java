@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 通用数据响应结果
+ *
  * @author skboy
  * @since v1.0.0
  */
@@ -43,6 +44,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 一般的响应结果，不返回数据
+     *
      * @param code {@link ResponseCode}
      */
     public ResponseResult(ResponseCode code) {
@@ -53,7 +55,8 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 一般的响应结果，不返回数据，自定义消息
-     * @param code {@link ResponseCode}
+     *
+     * @param code    {@link ResponseCode}
      * @param message {@code String} 自定义消息
      */
     public ResponseResult(ResponseCode code, String message) {
@@ -64,6 +67,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 一般的响应结果，包含数据
+     *
      * @param code {@link ResponseCode}
      * @param data {@code Object}
      */
@@ -76,9 +80,10 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 一般的响应结果，自定义消息并包含数据
-     * @param code {@link ResponseCode}
+     *
+     * @param code    {@link ResponseCode}
      * @param message {@link String}
-     * @param data {@code Object}
+     * @param data    {@code Object}
      */
     public ResponseResult(ResponseCode code, String message, T data) {
         super();
@@ -89,7 +94,8 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 异常的响应结果，返回的对象会包含 {@code throwable} 字段
-     * @param code {@link ResponseCode}
+     *
+     * @param code      {@link ResponseCode}
      * @param throwable {@link Throwable}
      */
     public ResponseResult(ResponseCode code, Throwable throwable) {
@@ -101,6 +107,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求成功
+     *
      * @return this
      */
     public static ResponseResult success() {
@@ -109,6 +116,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求成功
+     *
      * @param message {@code String} 自定义消息
      * @return this
      */
@@ -118,35 +126,39 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求成功，包含数据部分
+     *
      * @param data {@code Object}
      * @return this
      */
-    public static ResponseResult success(Object data) {
+    public static <T> ResponseResult success(T data) {
         return new ResponseResult(ResponseCode.SUCCESS, data);
     }
 
     /**
      * 请求成功，自定义状态码，包含数据
+     *
      * @param code {@link ResponseCode} 自定义状态码
      * @param data {@code Object}
      * @return this
      */
-    public static ResponseResult success(ResponseCode code, Object data) {
+    public static <T> ResponseResult success(ResponseCode code, T data) {
         return new ResponseResult(code, data);
     }
 
     /**
      * 请求成功，自定义消息并包含数据
+     *
      * @param message {@link String} 自定义消息
-     * @param data {@code Object}
+     * @param data    {@code Object}
      * @return this
      */
-    public static ResponseResult success(String message, Object data) {
+    public static <T> ResponseResult success(String message, T data) {
         return new ResponseResult(ResponseCode.SUCCESS, message, data);
     }
 
     /**
      * 请求失败
+     *
      * @return this
      */
     public static ResponseResult failure() {
@@ -155,6 +167,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求失败，自定义消息
+     *
      * @param message {@code String} 消息
      * @return this
      */
@@ -164,6 +177,7 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求失败，自定义状态码
+     *
      * @param code {@link ResponseCode} 自定义状态码
      * @return this
      */
@@ -173,7 +187,8 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求失败，自定义状态码，包含异常消息
-     * @param code {@link ResponseCode} 自定义状态码
+     *
+     * @param code      {@link ResponseCode} 自定义状态码
      * @param throwable {@link Throwable}
      * @return this
      */
@@ -183,11 +198,12 @@ public class ResponseResult<T> implements Serializable {
 
     /**
      * 请求失败，自定义状态码，包含数据
+     *
      * @param code {@link ResponseCode} 自定义状态码
      * @param data {@code Object}
      * @return this
      */
-    public static ResponseResult failure(ResponseCode code, Object data) {
+    public static <T> ResponseResult failure(ResponseCode code, T data) {
         return new ResponseResult(code, data);
     }
 
@@ -217,22 +233,19 @@ public class ResponseResult<T> implements Serializable {
             if (other.data != null) {
                 return false;
             }
-        }
-        else if (!data.equals(other.data)) {
+        } else if (!data.equals(other.data)) {
             return false;
         }
         if (message == null) {
             if (other.message != null) {
                 return false;
             }
-        }
-        else if (!message.equals(other.message)) {
+        } else if (!message.equals(other.message)) {
             return false;
         }
         if (code == null) {
             return other.code == null;
-        }
-        else {
+        } else {
             return code.equals(other.code);
         }
     }
