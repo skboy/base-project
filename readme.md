@@ -4,7 +4,7 @@
  
 修改配置文件的mysql 和 redis信息
 
-修改根目录名字 com.skboy.base 当初你不喜欢改也行
+修改根目录名字 com.skboy.base 当然你不喜欢改也行
  
 修改启动项的名字 和mapper扫描路径
 
